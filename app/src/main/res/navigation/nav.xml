@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/changingCodeFragment"
+        android:name="com.example.smartlock.login.ChangingCodeFragment"
+        android:label="fragment_changing_code"
+        tools:layout="@layout/fragment_changing_code" >
+        <action
+            android:id="@+id/action_changingCodeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.smartlock.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_loginByVerificationCodeFragment"
+            app:destination="@id/loginByVerificationCodeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_changingCodeFragment"
+            app:destination="@id/changingCodeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.smartlock.login.registerFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginByVerificationCodeFragment"
+        android:name="com.example.smartlock.login.LoginByVerificationCodeFragment"
+        android:label="fragment_login_by_verification_code"
+        tools:layout="@layout/fragment_login_by_verification_code" >
+        <action
+            android:id="@+id/action_loginByVerificationCodeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_loginByVerificationCodeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.smartlock.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_selectDeviceFragment"
+            app:destination="@id/selectDeviceFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_recordInfoFragment"
+            app:destination="@id/recordInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceManageFragment"
+        android:name="com.example.smartlock.device.DeviceManageFragment"
+        android:label="fragment_device_manage"
+        tools:layout="@layout/fragment_device_manage" >
+        <action
+            android:id="@+id/action_deviceManageFragment_to_bindDeviceFragment"
+            app:destination="@id/bindDeviceFragment" />
+        <action
+            android:id="@+id/action_deviceManageFragment_to_modifyInfoFragment"
+            app:destination="@id/modifyInfoFragment" />
+        <action
+            android:id="@+id/action_deviceManageFragment_to_deviceInfoFragment"
+            app:destination="@id/deviceInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bindDeviceFragment"
+        android:name="com.example.smartlock.device.BindDeviceFragment"
+        android:label="fragment_bind_device"
+        tools:layout="@layout/fragment_bind_device" >
+        <action
+            android:id="@+id/action_bindDeviceFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modifyInfoFragment"
+        android:name="com.example.smartlock.device.ModifyInfoFragment"
+        android:label="fragment_modify_info"
+        tools:layout="@layout/fragment_modify_info" >
+        <action
+            android:id="@+id/action_modifyInfoFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userQueryFragment"
+        android:name="com.example.smartlock.query.UserQueryFragment"
+        android:label="fragment_user_query"
+        tools:layout="@layout/fragment_user_query" />
+    <fragment
+        android:id="@+id/recordQueryFragment"
+        android:name="com.example.smartlock.query.RecordQueryFragment"
+        android:label="fragment_record_query"
+        tools:layout="@layout/fragment_record_query" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.smartlock.query.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/recordInfoFragment"
+        android:name="com.example.smartlock.query.RecordInfoFragment"
+        android:label="fragment_record_info"
+        tools:layout="@layout/fragment_record_info" />
+    <fragment
+        android:id="@+id/deviceInfoFragment"
+        android:name="com.example.smartlock.query.DeviceInfoFragment"
+        android:label="fragment_device_info"
+        tools:layout="@layout/fragment_device_info" >
+        <action
+            android:id="@+id/action_deviceInfoFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectDeviceFragment"
+        android:name="com.example.smartlock.device.SelectDeviceFragment"
+        android:label="fragment_select_device"
+        tools:layout="@layout/fragment_select_device" >
+        <action
+            android:id="@+id/action_selectDeviceFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>

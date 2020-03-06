@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">SmartLock</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter">登录</string>
+    <string name="phone_number_hint">请输入手机号</string>
+    <string name="password_hint">请输入验证码</string>
+    <string name="opening_record">开门记录</string>
+    <string name="security_alert">安全报警</string>
+    <string name="lock_user">门锁用户</string>
+    <string name="temporary_password">临时密码</string>
+    <string name="opening_door">远程开门</string>
+    <string name="lock_manage">门锁管理</string>
+    <string name="opening_code">密码解锁</string>
+    <string name="opening_fingerprint">指纹解锁</string>
+    <string name="code_hint">请输入密码</string>
+    <string name="ok">确定</string>
+    <string name="cancle">取消</string>
+    <string name="fingerprint_text">请录入指纹</string>
+    <string name="binding">绑定门锁</string>
+    <string name="cancle_binding">取消绑定</string>
+    <string name="changing_code">修改密码</string>
+    <string name="add_fingerprint">添加指纹</string>
+    <string name="start_add_fingerprint">开始验证</string>
+    <string name="cancle_add_fingerprint">取消验证</string>
+    <string name="way_unlock">请选择开锁方式</string>
+    <string name="button_code">密码</string>
+    <string name="set_code">设置密码</string>
+    <string name="button_fingerprint">指纹</string>
+    <string name="old_code">原密码:</string>
+    <string name="new_code">新密码:</string>
+    <string name="input_code">输入密码:</string>
+    <string name="input_code_again">再次输入:</string>
+</resources>
