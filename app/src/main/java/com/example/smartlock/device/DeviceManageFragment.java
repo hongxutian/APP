@@ -1,7 +1,9 @@
 package com.example.smartlock.device;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +48,7 @@ public class DeviceManageFragment extends Fragment implements Observer {
     private MyViewModel myViewModel;
     private String dialog_phone;
     private String query_phone;
+    SharedPreferences sp;
 
     public DeviceManageFragment() {
         // Required empty public constructor
@@ -78,6 +81,7 @@ public class DeviceManageFragment extends Fragment implements Observer {
         }
         myViewModel= ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         myViewModel.getLiveData().observe(this, this);
+        sp = getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -87,8 +91,8 @@ public class DeviceManageFragment extends Fragment implements Observer {
         View view=inflater.inflate(R.layout.fragment_device_manage,container,false);
         final View edit_view=inflater.inflate(R.layout.edit,container,false);
 
-        dialog_phone=HttpUtil.shp.getString("login_phone","");
-        query_phone=HttpUtil.shp.getString("login_phone","");
+        dialog_phone=sp.getString("login_phone","");
+        query_phone=sp.getString("login_phone","");
         final EditText dialog_device_num=edit_view.findViewById(R.id.dialog_device_num);
         Button cancle_bind=view.findViewById(R.id.cancle_bind);
         //切换到绑定设备界面
