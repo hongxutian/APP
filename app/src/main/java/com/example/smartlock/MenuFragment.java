@@ -1,7 +1,6 @@
 package com.example.smartlock;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +42,6 @@ public class MenuFragment extends Fragment implements Observer {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    SharedPreferences sp;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -76,7 +74,7 @@ public class MenuFragment extends Fragment implements Observer {
         }
         myViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         myViewModel.getLiveData().observe(this, this);
-        sp = getContext().getSharedPreferences("current_device_number", Context.MODE_PRIVATE);
+
     }
 
     @Override
@@ -84,10 +82,11 @@ public class MenuFragment extends Fragment implements Observer {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_menu, container, false);
         final TextView current_device = view.findViewById(R.id.current_device);
+        HttpUtil.shp = getContext().getSharedPreferences("current_device_number", Context.MODE_PRIVATE);
        //HttpUtil.shp=getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
         //query_user_phone = HttpUtil.shp.getString("login_phone", "");
         query_user_phone=HttpUtil.id;
-        query_device_number = sp.getString("current_number", "");
+        query_device_number = HttpUtil.shp.getString("current_number", "");
         System.out.println(query_user_phone+",,,,,,,,,,,,"+query_device_number);
         /*Bundle bundle = getArguments();
         if(bundle!= null){
@@ -98,8 +97,8 @@ public class MenuFragment extends Fragment implements Observer {
             HttpUtil.editor.apply();
 
         }     */
-        if (sp.getString("current_device_number", "") != null) {
-            current_number = sp.getString("current_number", "");
+        if (HttpUtil.shp.getString("current_device_number", "") != null) {
+            current_number = HttpUtil.shp.getString("current_number", "");
             current_device.setText(current_number);
         }
 
@@ -165,7 +164,7 @@ public class MenuFragment extends Fragment implements Observer {
                map.put("content", object.toJSONString());
 
                try {
-                   HttpUtil.webRequestWithToken(true,HttpUtil.QueryRecord_url,map,myViewModel,"QueryRecord");
+                   HttpUtil.webRequestWithToken(true,HttpUtil.QueryRecord_url,map,myViewModel,"QueryUserInfo");
                } catch (JSONException e) {
                    e.printStackTrace();
                }

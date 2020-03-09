@@ -1,7 +1,5 @@
 package com.example.smartlock.query;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +35,6 @@ public class RecordQueryFragment extends Fragment implements Observer {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String query_user_phone;
-    SharedPreferences sp;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,7 +72,6 @@ public class RecordQueryFragment extends Fragment implements Observer {
         }
         myViewModel= ViewModelProviders.of(getActivity()).get(MyViewModel.class);
         myViewModel.getLiveData().observe(this, this);
-        sp = getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -83,7 +79,7 @@ public class RecordQueryFragment extends Fragment implements Observer {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_record_query,container,false);
 
-        query_user_phone=sp.getString("login_phone","");
+        query_user_phone=HttpUtil.shp.getString("login_phone","");
         final EditText query_record_device=view.findViewById(R.id.query_record_device);
 
         //切换到Menu
